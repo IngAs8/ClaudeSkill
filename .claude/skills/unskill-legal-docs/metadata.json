@@ -1,0 +1,41 @@
+{
+  "name": "unskill-legal-docs",
+  "display_name": "Unskill Legal Documents",
+  "aliases": [
+    "legal-docs",
+    "legal-analysis",
+    "contract-review"
+  ],
+  "version": "1.0.0",
+  "description": "Analyze legal documents, laws, and court decisions to generate comprehensive legal reports and documents.",
+  "category": "legal",
+  "keywords": [
+    "legal",
+    "contracts",
+    "documents",
+    "compliance",
+    "analysis",
+    "law",
+    "regulations"
+  ],
+  "author": "ClaudeSkill",
+  "created": "2026-04-10",
+  "files": [
+    "SKILL.md",
+    "PROCEDURES.md",
+    "README.md"
+  ],
+  "triggers": {
+    "user_asks": [
+      "analyze",
+      "contract",
+      "legal",
+      "document",
+      "law",
+      "regulation",
+      "compliance",
+      "review",
+      "memorandum"
+    ]
+  }
+}
