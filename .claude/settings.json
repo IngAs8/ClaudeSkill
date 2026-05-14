@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Read",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 -c \"\nimport json, sys, subprocess, os\ndata = json.load(sys.stdin)\nfp = data.get('tool_input', {}).get('file_path', '')\next = os.path.splitext(fp)[1].lower()\nconvertible = {'.pdf','.docx','.doc','.xlsx','.xls','.pptx','.ppt','.jpg','.jpeg','.png','.gif','.bmp','.wav','.mp3','.mp4','.avi','.mov'}\nif ext in convertible and os.path.exists(fp):\n    result = subprocess.run(['markitdown', fp], capture_output=True, text=True)\n    if result.returncode == 0:\n        out = {'hookSpecificOutput': {'hookEventName': 'PreToolUse', 'additionalContext': '[MarkItDown] Converted ' + fp + ':\\n\\n' + result.stdout}}\n        print(json.dumps(out))\n\" 2>/dev/null || true",
+            "timeout": 60,
+            "statusMessage": "Convirtiendo archivo con MarkItDown..."
+          }
+        ]
+      }
+    ]
+  }
+}
